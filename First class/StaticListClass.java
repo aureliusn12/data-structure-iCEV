@@ -1,8 +1,8 @@
-public class StaticList {
+public class StaticListClass {
     private int valor[];
     private int tamanho, ultimo;
 
-        public StaticList(int p){
+        public StaticListClass(int p){
             this.tamanho = p;
             this.valor = new int[p];
             this.ultimo = - 1;
@@ -41,7 +41,7 @@ public class StaticList {
         }
     
         public static void main(String[] args) {
-            StaticList lista = new StaticList(10);
+            StaticListClass lista = new StaticListClass(10);
 
         lista.add(5,0);
         lista.add(10,1);

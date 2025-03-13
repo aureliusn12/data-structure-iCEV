@@ -1,4 +1,5 @@
-public class ListaEstatica {
+package LinkedList;
+public class LinkedList {
     public static void add(Node head, Node newNode){
         Node pointer = head.pointer;
         while (pointer.pointer != null){
@@ -15,7 +16,6 @@ public class ListaEstatica {
             index++;
         }
 
-        newNode.setPointer() 
     }
 
     public static void main(String[] args) {

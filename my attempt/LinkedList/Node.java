@@ -1,9 +1,10 @@
+package LinkedList;
 public class Node {
     public String data; 
     public Node pointer;
 
-    public Node (String data){
-        this.data = data;
+    public Node (String new_data){
+        this.data = new_data;
     }
 
     public String getData() {
