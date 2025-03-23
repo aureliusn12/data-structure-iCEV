@@ -1,6 +1,6 @@
 package DoubleLinkedList;
 
-import LinkedList.Node;
+import apdfaskf.Node;
 
 public class DoubleLinkedList {
 
