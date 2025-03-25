@@ -1,4 +1,4 @@
-package apdfaskf;
+package Linked_List;
 
 public class LinkedList {
     Node head;
