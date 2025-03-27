@@ -9,7 +9,7 @@ public class App {
         list.addAtFirst(9);
         list.addAtEnd(12);
         list.addAtEnd(10);
-        //list.removeEnd();
+        list.removeEnd();
         list.removeFirst();
         list.print();
     }

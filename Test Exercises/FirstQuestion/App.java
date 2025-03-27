@@ -1,12 +1,11 @@
-package DoubleLinkedCircleList;
+package FirstQuestion;
 
-public class app {
+public class App {
     public static void main(String[] args) {
-        DoubleLinkedCircleList list = new DoubleLinkedCircleList();
-        list.addFirst(10);
+        Deque list = new Deque();
+        list.addEnd(10);
         list.addFirst(20);
         list.addFirst(30);
-        list.print();
         list.addEnd(40);
         list.print();
         list.removeFirst();

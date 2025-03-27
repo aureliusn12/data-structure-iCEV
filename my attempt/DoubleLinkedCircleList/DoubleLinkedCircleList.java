@@ -22,15 +22,49 @@ public class DoubleLinkedCircleList {
     }
 
     public void addEnd(int data){
+        No newNode = new No(data);
 
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            head.prox = head;
+            head.ant = head;
+            return;
+        }
+        tail.prox = newNode;
+        newNode.ant = tail;
+        tail = newNode;
+        tail.prox = head;
+        head.ant = tail;
     }
 
     public void removeFirst(){
+        if (head == null) {
+            System.out.println("lista vazia");
+            return;
+        }
+        else if (head == tail){
+            head = null;
+            tail = null;
+            return;
+        }
+        head = head.prox;
+        head.ant = tail;
+        tail.prox = head;
 
     }
 
     public void removeLast(){
-
+        if (head == null) {
+            System.out.println("lista vazia");
+        }
+        else if(head == tail){
+            head = null;
+            tail = null;
+        }
+        tail = tail.ant;
+        tail.prox = head;
+        head.ant = tail;
     }
 
     public void print(){
