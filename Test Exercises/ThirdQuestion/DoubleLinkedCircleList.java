@@ -3,6 +3,11 @@
 public class DoubleLinkedCircleList {
     No head;
     No tail;
+    int size;
+
+    public DoubleLinkedCircleList(){
+        this.size = 0;
+    }
 
     public void addFirst(int data){
         No newNode = new No(data);
@@ -19,6 +24,7 @@ public class DoubleLinkedCircleList {
         tail.prox = newNode; 
         head.ant = newNode;
         head = newNode;
+        this.size++;
     }
 
     public void addEnd(int data){
@@ -29,29 +35,36 @@ public class DoubleLinkedCircleList {
             tail = newNode;
             head.prox = head;
             head.ant = head;
+            this.size++;
             return;
-        }
-        tail.prox = newNode;
+        } else {
+        newNode.prox = head;
         newNode.ant = tail;
+        tail.prox = newNode;
+        head.ant = newNode;
         tail = newNode;
-        tail.prox = head;
-        head.ant = tail;
+    }
+    this.size++;    
+        
     }
 
-    public void removeFirst(){
+    public No removeFirst(){
+        No n;
         if (head == null) {
             System.out.println("lista vazia");
-            return;
+            
         }
         else if (head == tail){
             head = null;
             tail = null;
-            return;
+            
         }
+        n = head;
         head = head.prox;
         head.ant = tail;
         tail.prox = head;
-
+        this.size--;
+        return n;
     }
 
     public void removeLast(){
@@ -65,12 +78,18 @@ public class DoubleLinkedCircleList {
         tail = tail.ant;
         tail.prox = head;
         head.ant = tail;
+        this.size--;
     }
 
-    public void deslocar(){
+    /*public void deslocar(){
+        int i = 0;
+
+        while (i < list.getsize()) {
+            
+        }
         
     }
-
+*/
     public void print(){
         No actual = head;
 
