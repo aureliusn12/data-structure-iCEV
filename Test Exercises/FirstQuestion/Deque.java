@@ -3,6 +3,7 @@ package FirstQuestion;
 public class Deque {
     No head;
     No tail;
+
     public void addFirst(int data) {
         No newNo = new No(data);
 
@@ -65,30 +66,32 @@ public class Deque {
 
     }
 
-    public void rotate(int k){
+    public void rotate(int k) {
         No firstvalue;
         No lastvalue;
 
-        if (head == null || tail == null){
+        if (head == null || tail == null) {
             return;
         }
 
-        if(k>0) {
+        if (k > 0) {
             for (int i = 0; i < k; i++) {
                 firstvalue = removeFirst();
-                if(firstvalue != null){ 
+
+                if (firstvalue != null) {
                     addEnd(firstvalue.data);
                 }
             }
-        }else {
+        } else {
             for (int i = 0; i > k; i--) {
                 lastvalue = removeEnd();
-                if (lastvalue != null){
+
+                if (lastvalue != null) {
                     addFirst(lastvalue.data);
                 }
             }
-        }
-    }
+        }
+    }
 
     public void print() {
         No actual = head;

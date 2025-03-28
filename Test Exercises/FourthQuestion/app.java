@@ -1,6 +1,6 @@
-package FirstQuestion;
+package FourthQuestion;
 
-public class App {
+public class app {
     public static void main(String[] args) {
         Deque list = new Deque();
         list.addEnd(10);
@@ -8,11 +8,7 @@ public class App {
         list.addFirst(30);
         list.addEnd(40);
         list.print();
-        list.removeFirst();
-        list.print();
-        list.removeEnd();
-        list.print();
-        list.rotate(1);
+        list.inverter();
         list.print();
     }
 }
