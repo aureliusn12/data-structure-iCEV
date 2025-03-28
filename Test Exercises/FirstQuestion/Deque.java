@@ -3,8 +3,7 @@ package FirstQuestion;
 public class Deque {
     No head;
     No tail;
-
-    public void addFirst(int data){
+    public void addFirst(int data) {
         No newNo = new No(data);
 
         if (head == null) {
@@ -17,7 +16,7 @@ public class Deque {
         head = newNo;
     }
 
-    public void addEnd(int data){
+    public void addEnd(int data) {
         No newNo = new No(data);
 
         if (head == null) {
@@ -30,35 +29,68 @@ public class Deque {
         tail = newNo;
     }
 
-    public void removeFirst(){
+    public No removeFirst() {
+        No first = head;
+
         if (head == null) {
             System.out.println("Lista vazia");
         }
-        else if (head == tail) {
+
+        if (head == tail) {
             head = null;
             tail = null;
+        } else {
+            head = head.prox;
+            head.ant = null;
         }
-        head = head.prox;
-        head.ant = null;
+        return first;
     }
 
-    public void removeLast(){
+    public No removeEnd() {
+        No last = tail;
+
         if (head == null) {
             System.out.println("Lista vazia");
+            return null;
         }
-        else if (head == tail) {
+
+        if (head == tail) {
             head = null;
             tail = null;
+        } else {
+            tail = tail.ant;
+            tail.prox = null;
         }
-        tail = tail.ant;
-        tail.prox = null;
-    }
-
-    public void rotate(){
+        return last;
 
     }
 
-    public void print(){
+    public void rotate(int k){
+        No firstvalue;
+        No lastvalue;
+
+        if (head == null || tail == null){
+            return;
+        }
+
+        if(k>0) {
+            for (int i = 0; i < k; i++) {
+                firstvalue = removeFirst();
+                if(firstvalue != null){ 
+                    addEnd(firstvalue.data);
+                }
+            }
+        }else {
+            for (int i = 0; i > k; i--) {
+                lastvalue = removeEnd();
+                if (lastvalue != null){
+                    addFirst(lastvalue.data);
+                }
+            }
+        }
+    }
+
+    public void print() {
         No actual = head;
         if (actual == null) {
             System.out.println("Lista vazia");

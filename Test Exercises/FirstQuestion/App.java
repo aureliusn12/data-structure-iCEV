@@ -10,7 +10,8 @@ public class App {
         list.print();
         list.removeFirst();
         list.print();
-        list.removeLast();
+        list.removeEnd();
         list.print();
+        list.rotate(4);
     }
 }
