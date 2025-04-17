@@ -81,15 +81,27 @@ public class DoubleLinkedCircleList {
         this.size--;
     }
 
-    /*public void deslocar(){
-        int i = 0;
-
-        while (i < list.getsize()) {
-            
+    public void deslocar(No inicio, No fim){
+        if (inicio == null || fim == null || inicio == fim){
+             return;
         }
         
+        // Conectar nós vizinhos para remover o intervalo da lista
+        inicio.ant.prox = fim.prox;
+        fim.prox.ant = inicio.ant;
+
+        // Conectar o intervalo ao final
+        fim.prox = head;
+        head.ant = fim;
+
+        inicio.ant = tail;
+        tail.prox = inicio;
+
+        // Atualizar tail
+        tail = fim;
+        
     }
-*/
+
     public void print(){
         No actual = head;
 
