@@ -23,23 +23,6 @@ public class listaCircular {
     }
 
     public void deslocar(No inicio, No fim) {
-        if (inicio == null || fim == null){
-            return;
-        }
-        
-        // Desconectar trecho [inicio, fim]
-        inicio.ant.prox = fim.prox;
-        fim.prox.ant = inicio.ant;
-
-        // Conectar no final
-        tail.prox = inicio;
-        inicio.ant = tail;
-
-        fim.prox = head;
-        head.ant = fim;
-
-        // Atualizar tail
-        tail = fim;
 
     }
 
