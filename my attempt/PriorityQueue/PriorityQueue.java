@@ -4,7 +4,7 @@ public class PriorityQueue {
     private No head;
     private No tail;
 
-    public void enqueue(int data, int priority) {
+    public void add(int data, int priority) {
         No newNo = new No(data, priority);
         No actual = head;
 
@@ -13,39 +13,29 @@ public class PriorityQueue {
             return;
         }
 
-        while (actual != null && actual.priority >= priority) {
-            actual = actual.prox;
+        if (priority <= head.priority) {
+            head.ant = newNo;
+            newNo.prox = head;
+            head = newNo;
+            return;
         }
 
-        if (actual == head) {
-            newNo.prox = head;
-            head.ant = newNo;
-            head = newNo;
-
-        } else if (actual == null) {
+        if (priority > tail.priority) {
             tail.prox = newNo;
             newNo.ant = tail;
             tail = newNo;
-            
-        } else {
-            newNo.prox = actual;
-            newNo.ant = actual.ant;
-            actual.ant.prox = newNo;
-            actual.ant = newNo;
-        }
-    }
-
-    public void dequeue() {
-        if (head == null) {
-            System.out.println("Fila de prioridade vazia!");
+            return;
         }
 
-        head = head.prox;
-        if (head != null) {
-            head.ant = null;
-        } else {
-            tail = null;
+        while (actual.prox != null && actual.prox.priority < priority) {
+            actual = actual.prox;
         }
+        
+        newNo.ant = actual;
+        newNo.prox = actual.prox;
+        actual.prox = newNo;
+        newNo.prox.ant = newNo;
+
     }
 
     public void print() {
