@@ -23,7 +23,37 @@ public class listaCircular {
     }
 
     public void deslocar(No inicio, No fim) {
+        No temp;
 
+        No actual = head;
+
+
+        while (actual.prox != inicio) {
+            actual = actual.prox;
+        }
+
+        while (inicio != fim) {
+            temp = inicio;
+            actual.prox = temp.prox;
+            temp.prox.ant = actual;
+            temp.ant = tail;
+            tail.prox = temp;
+            temp.prox = head;
+            head.ant = temp;
+            tail = temp;
+            inicio = actual.prox;
+        }
+
+        if (inicio == fim) {
+            temp = inicio;
+            actual.prox = temp.prox;
+            temp.prox.ant = actual;
+            temp.ant = tail;
+            tail.prox = temp;
+            temp.prox = head;
+            head.ant = temp;
+            tail = temp;
+        }
     }
 
     public void print() {
