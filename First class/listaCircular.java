@@ -1,5 +1,3 @@
-package xexo.quest2;
-
 public class listaCircular {
     No head;
     No tail;

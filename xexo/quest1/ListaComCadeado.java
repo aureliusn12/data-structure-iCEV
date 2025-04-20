@@ -1,6 +1,6 @@
 package xexo.quest1;
 
-public class LinkedList {
+public class ListaComCadeado {
     No head;
 
     public class No {
@@ -16,8 +16,8 @@ public class LinkedList {
     public void dividirListas() {
         No actual = head;
         int pos = 0;
-        LinkedList listaPar = new LinkedList();
-        LinkedList listaImpar = new LinkedList();
+        ListaComCadeado listaPar = new ListaComCadeado();
+        ListaComCadeado listaImpar = new ListaComCadeado();
 
         while (actual != null) {
 
@@ -69,7 +69,7 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList lista = new LinkedList();
+        ListaComCadeado lista = new ListaComCadeado();
         lista.insert(1);
         lista.insert(2);
         lista.insert(3);
