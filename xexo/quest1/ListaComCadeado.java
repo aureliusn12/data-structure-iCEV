@@ -23,16 +23,15 @@ public class ListaComCadeado {
 
             if (pos % 2 == 0) {
                 listaPar.insert(actual.data);
-                return;
             }
-
             if (pos % 2 != 0) {
                 listaImpar.insert(actual.data);
-                return;
             }
+            actual = actual.prox;
+            pos++;
         }
-        actual = actual.prox;
-        pos++;
+        listaImpar.imprimir();
+        listaPar.imprimir();
     }
 
     public void juntarListas(){
@@ -70,13 +69,16 @@ public class ListaComCadeado {
 
     public static void main(String[] args) {
         ListaComCadeado lista = new ListaComCadeado();
+        lista.insert(0);
         lista.insert(1);
         lista.insert(2);
         lista.insert(3);
         lista.insert(4);
         lista.insert(5);
         lista.insert(6);
+        lista.imprimir();
 
         lista.dividirListas();
+        
     }
 }

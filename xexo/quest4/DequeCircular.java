@@ -5,23 +5,29 @@ public class DequeCircular {
     No tail;
 
     public void inverter() {
+        int count = 0;
         No actual = head;
-
-        if (head == null || head == tail) {
-            return;
+        while (actual.prox != head) {
+            count++;
+            if(actual.prox.prox == head){
+                count++;
+            }
+            actual = actual.prox;
         }
-
-        do {
-            No temp = actual.prox;
-            actual.prox = actual.ant;
-            actual.ant = temp;
-            actual = temp;
-
-        } while (actual != head);
-
-        No temp = head;
-        head = tail;
-        tail = temp;
-
+        No ultimoInvertido = head;
+        this.head = ultimoInvertido.prox;
+        this.tail = ultimoInvertido;
+        while(count != 1){
+            No element = head;
+            head = head.prox;
+            element.prox = ultimoInvertido;
+            element.ant = ultimoInvertido.ant;
+            element.ant.prox = element;
+            ultimoInvertido.ant = element;
+            head.ant = tail;
+            tail.prox = head;
+            ultimoInvertido = element;
+            count--;
+        }
     }
 }

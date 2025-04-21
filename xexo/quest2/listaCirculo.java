@@ -4,14 +4,13 @@ public class listaCirculo {
 
     public void deslocar(No inicio, No fim){
         No actual = head;
-        No temp;
+        No temp = inicio;
 
-        while (actual.prox != head) {
+        while (actual.prox != inicio) {
             actual = actual.prox;
         }
 
         while (inicio != fim) {
-            temp = inicio;
             actual.prox = temp.prox;
             actual.prox.ant = temp.ant;
             temp.ant = tail;
