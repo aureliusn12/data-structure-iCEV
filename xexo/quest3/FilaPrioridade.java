@@ -41,12 +41,12 @@ public class FilaPrioridade {
     public void addAsFilas(int data, int priority) {
 
         if (priority > 5) {
-            F1.add(data, priority);
+            F2.add(data, priority);
             return;
         }
 
         if (priority <= 5 && priority >= 0) {
-            F2.add(data, priority);
+            F1.add(data, priority);
             return;
         }
     }
@@ -78,12 +78,12 @@ public class FilaPrioridade {
             actual = actual.prox;
 
             if (priority > 5) {
-                F1.remove(priority);
+                F2.remove(priority);
                 return;
             }
 
             if (priority <= 5 && priority >= 0) {
-                F2.remove(priority);
+                F1.remove(priority);
                 return;
             }
 
